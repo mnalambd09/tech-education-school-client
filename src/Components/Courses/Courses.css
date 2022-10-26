@@ -1,0 +1,20 @@
+.course-img img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.course-content{
+    background-color: tomato;
+    display:grid;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 5px whitesmoke;
+}
+.course-title a{
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+}

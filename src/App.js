@@ -7,6 +7,7 @@ import Home from './Components/Home/Home';
 import Blog from './Components/Blog/Blog';
 import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';
+import PrivateRoutes from './Route/PrivateRoutes';
 
 
 function App() {
@@ -18,11 +19,11 @@ function App() {
       children:[
         {
           path: '/',
-          element: <Home></Home>
+          element: <PrivateRoutes><Home></Home></PrivateRoutes>
         },
         {
           path: '/home',
-          element: <Home></Home>
+          element: <PrivateRoutes><Home></Home></PrivateRoutes>
         },
         {
           path: '/blog',

@@ -1,16 +1,34 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../UserContext/UserContext';
 
 const Login = () => {
+    const [user, setUser] = useState({});
+    const {signIn, registerWithGoogle} = useContext(AuthContext)
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        form.reset()
+        signIn(email, password)
         console.log(email, password)
     }
+    const handleGoogleRegister = () => {
+        registerWithGoogle()
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+            setUser(user)
+        })
+        .catch(error => {
+            console.error(error)
+        })
+        
+    }
+
     return (
         <div className='w-50 mx-auto mb-5'>
             <h1>Please Login</h1>
@@ -31,7 +49,13 @@ const Login = () => {
                     <p>You don't have an account? <Link to='/register'>Please Register</Link></p>
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                    Submit
+                    Login
+                </Button>
+                <br /><br />
+                <p>{user.email}</p>
+                <p>{user.displayName}</p>
+                <Button onClick={handleGoogleRegister} variant="primary" type="submit">
+                    Login With Google
                 </Button>
             </Form>
 

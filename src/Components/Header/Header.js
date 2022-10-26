@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../UserContext/UserContext';
 import Image  from '../Header/logo.png';
 import './Header.css'
 
 
 const Header = () => {
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+        .then(() => {
+
+        })
+        .catch(error => console.error(error));
+    }
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                     <Link to='/home'><div className='logo'><img src={Image} alt="" /></div></Link>
+                    <div className='title'><Link to='/home'>Tech-Education-School</Link></div>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto nav-link">
@@ -34,9 +45,15 @@ const Header = () => {
                             </NavDropdown> */}
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
+                            <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
+                                {/* <img src={user.photoURL} alt="" /> */}
+                                {
+                                    user?.uid ?
+                                    <button onClick={handleLogOut} className='btn btn-primary'>Sign Out</button>
+                                    :
+                                    <button className='btn btn-primary'><Link to='/login'>Log In</Link></button>
+                                }
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
