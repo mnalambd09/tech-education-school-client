@@ -1,3 +1,12 @@
 .logo img{
     width: 50px;
 }
+.nav-link a {
+    text-decoration: none;
+    color: white;
+    padding-left: 10px;
+    font-weight: bolder;
+}
+.nav-link a:hover{
+    color: tomato
+}
