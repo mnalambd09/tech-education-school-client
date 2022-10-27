@@ -7,7 +7,7 @@ const Courses = () => {
     const myData = useLoaderData()
     console.log(myData)
     // useEffect(() => {
-    //     fetch('http://localhost:5000/courses')
+    //     fetch('https://tech-education-server.vercel.app/courses')
     //     .then(res => res.json())
     //     .then(data => setCourses(data))
     // } ,[])
