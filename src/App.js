@@ -10,6 +10,7 @@ import Login from './Components/Login/Login';
 import PrivateRoutes from './Route/PrivateRoutes';
 import NotFound from './Components/NotFound/NotFound';
 import Courses from './Components/Courses/Courses';
+import FAQ from './Components/Q-A/FAQ';
 
 
 function App() {
@@ -44,6 +45,10 @@ function App() {
         {
           path: '/login',
           element: <Login></Login>
+        },
+        {
+          path: '/faq',
+          element: <FAQ></FAQ>
         },
       ]
     },

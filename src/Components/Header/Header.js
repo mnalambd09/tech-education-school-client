@@ -31,6 +31,7 @@ const Header = () => {
                         <Nav className="me-auto nav-link">
                             <Link to="/home">Home</Link>
                             <Link to="/blog">Blog</Link>
+                            <Link to="/faq">FAQ</Link>
                             <Link to="/register">Register</Link>
                             <Link to="/login">Login</Link>
                             {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
