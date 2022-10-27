@@ -1,0 +1,8 @@
+.social-icon svg{
+    font-size: 25px;
+    margin-right: 20px;
+    color: tomato;
+}
+.social-icon svg:hover{
+    color: white;
+}
