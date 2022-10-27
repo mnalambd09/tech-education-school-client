@@ -47,10 +47,10 @@ const Header = () => {
                         <Nav>
                             <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
-                                {/* <img src={user.photoURL} alt="" /> */}
+                                <img className='rounded rounded-circle w-25' src={user?.photoURL} alt="" />
                                 {
                                     user?.uid ?
-                                    <button onClick={handleLogOut} className='btn btn-primary'>Sign Out</button>
+                                    <button onClick={handleLogOut} className='btn btn-primary m-2'>Sign Out</button>
                                     :
                                     <button className='btn btn-primary'><Link to='/login'>Log In</Link></button>
                                 }

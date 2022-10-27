@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import './Courses.css'
 
 const Courses = () => {
     const [Courses, setCourses] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:5000/courses')
-        .then(res => res.json())
-        .then(data => setCourses(data))
-    } ,[])
+    const myData = useLoaderData()
+    console.log(myData)
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/courses')
+    //     .then(res => res.json())
+    //     .then(data => setCourses(data))
+    // } ,[])
     return (
         <div>
             <h1 className='text-center text-white'>All Courses {Courses.length}</h1>

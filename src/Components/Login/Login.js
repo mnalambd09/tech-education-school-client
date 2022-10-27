@@ -3,10 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
     const [user, setUser] = useState({});
-    const {signIn, registerWithGoogle} = useContext(AuthContext)
+    const {signIn, registerWithGoogle, registerWithgithub} = useContext(AuthContext)
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -18,6 +19,18 @@ const Login = () => {
     }
     const handleGoogleRegister = () => {
         registerWithGoogle()
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+            setUser(user)
+        })
+        .catch(error => {
+            console.error(error)
+        })
+        
+    }
+    const handlegithubRegister = () => {
+        registerWithgithub()
         .then(result => {
             const user = result.user;
             console.log(user)
@@ -55,7 +68,11 @@ const Login = () => {
                 <p>{user.email}</p>
                 <p>{user.displayName}</p>
                 <Button onClick={handleGoogleRegister} variant="primary" type="submit">
-                    Login With Google
+                    Login With Google <FaGoogle />
+                </Button>
+                <br /><br />
+                <Button onClick={handlegithubRegister} variant="primary" type="submit">
+                Login With Github <FaGithub />
                 </Button>
             </Form>
 

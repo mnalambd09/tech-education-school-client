@@ -20,6 +20,10 @@ const UserContext = ({children}) => {
     const registerWithGoogle = () => {
         return signInWithPopup(auth, googleProvider)
     }
+    const githubProvider = new GoogleAuthProvider();
+    const registerWithgithub = () => {
+        return signInWithPopup(auth, githubProvider)
+    }
 
     const signIn = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
@@ -40,7 +44,7 @@ const UserContext = ({children}) => {
         }
     }, [])
 
-    const authInfo = {createUser, error, setError, registerWithGoogle, signIn, setUser, user, logOut, loading}
+    const authInfo = {createUser, error, setError, registerWithGoogle, signIn, setUser, user, logOut, loading, registerWithgithub}
 
    return (
         <div>

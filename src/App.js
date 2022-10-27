@@ -9,6 +9,7 @@ import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';
 import PrivateRoutes from './Route/PrivateRoutes';
 import NotFound from './Components/NotFound/NotFound';
+import Courses from './Components/Courses/Courses';
 
 
 function App() {
@@ -26,10 +27,11 @@ function App() {
           path: '/home',
           element:<Home></Home>
         },
+      
         {
-          path: '/home:id',
+          path: '/courses/:id',
           loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`),
-          element:<Home></Home>
+          element:<Courses></Courses>
         },
         {
           path: '/blog',
