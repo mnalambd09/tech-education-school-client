@@ -14,12 +14,12 @@ const Courses = () => {
         <div>
             <h1 className='text-center text-white'>All Courses {Courses.length}</h1>
             {
-                Courses.map(course => <p key={course.id}>
+                Courses.map(courses => <div className='mg-bottom' key={courses.id}>
                     <div className='course-content'>
-                    <div className='course-img'><img src={course.thumbnail_url} alt="" /></div>
-                    <div className='course-title'><Link>{course.title}</Link></div>
+                    {/* <div className='course-img'><img src={courses.thumbnail_url} alt="" /></div> */}
+                    <div className='course-title'><Link to={`/courses/${courses.id}`}>{courses.title}</Link></div>
                     </div>
-                </p>)
+                </div>)
             }
         </div>
     );

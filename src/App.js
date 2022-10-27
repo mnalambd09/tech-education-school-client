@@ -8,6 +8,7 @@ import Blog from './Components/Blog/Blog';
 import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';
 import PrivateRoutes from './Route/PrivateRoutes';
+import NotFound from './Components/NotFound/NotFound';
 
 
 function App() {
@@ -19,11 +20,16 @@ function App() {
       children:[
         {
           path: '/',
-          element: <PrivateRoutes><Home></Home></PrivateRoutes>
+          element: <Home></Home>
         },
         {
           path: '/home',
-          element: <PrivateRoutes><Home></Home></PrivateRoutes>
+          element:<Home></Home>
+        },
+        {
+          path: '/home:id',
+          loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`),
+          element:<Home></Home>
         },
         {
           path: '/blog',
@@ -39,6 +45,10 @@ function App() {
         },
       ]
     },
+    {
+      path: '*',
+      element: <NotFound></NotFound>
+    }
   ])
   return (
     <div className="">

@@ -1,7 +1,7 @@
 .course-img img{
     width: 150px;
     height: 150px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
 }
 .course-content{
     background-color: tomato;
@@ -13,8 +13,18 @@
     border-radius: 20px;
     box-shadow: 5px 5px 5px 5px whitesmoke;
 }
+.course-title{
+    margin-bottom: 0px;
+}
 .course-title a{
     text-decoration: none;
     color: white;
     font-weight: bolder;
+}
+.course-title a:hover{
+    color: aqua;
+    font-size: 18px;
+}
+.mg-bottom{
+    margin-bottom: 20px;
 }
