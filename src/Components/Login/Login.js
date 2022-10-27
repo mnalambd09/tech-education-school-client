@@ -7,6 +7,7 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
     const [user, setUser] = useState({});
+    const [passwordError, setPasswordError] = useState('')
     const {signIn, registerWithGoogle, registerWithgithub} = useContext(AuthContext)
     const handleSubmit = event => {
         event.preventDefault();
@@ -16,7 +17,12 @@ const Login = () => {
         form.reset()
         signIn(email, password)
         console.log(email, password)
+        .catch(error => {
+            setPasswordError(error.message)
+        })
+        
     }
+    
     const handleGoogleRegister = () => {
         registerWithGoogle()
         .then(result => {
