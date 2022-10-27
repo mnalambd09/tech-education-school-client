@@ -16,7 +16,7 @@ const Sidebar = () => {
             {
                 courses.map(courses => <div className='mg-bottom' key={courses.id}>
                     <div className='course-content'>
-                        <div className='course-title'><Link to={`/card/${courses.id}`}>{courses.title}</Link></div>
+                        <div className='course-title'><Link to={`/courses/${courses.id}`}>{courses.title}</Link></div>
 
                     </div>
                 </div>)
