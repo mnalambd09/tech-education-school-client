@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './Home.css'
+import './Home.css';
+
 
 
 
@@ -22,7 +23,7 @@ const Home = () => {
                         courses.map(courses => <div className='mg-bottom' key={courses.id}>
                             <div className='course-content'>
                                 <div className='course-img'><img src={courses.thumbnail_url} alt="" /></div>
-                                <div className='course-title'><Link to={`/courses/${courses.id}`}>{courses.title}</Link></div>
+                                <div className='course-title'><Link to={`/card/${courses.id}`}>{courses.title}</Link></div>
                                 <h3>Price : ${courses.price}</h3>
                                 <Link to={`/courses/${courses.id}`}><button className='btn btn-primary'>View Details</button></Link>
                             </div>

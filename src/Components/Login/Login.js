@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
     const [user, setUser] = useState({});
     const [passwordError, setPasswordError] = useState('')
+    const navigate = useNavigate();
     const {signIn, registerWithGoogle, registerWithgithub} = useContext(AuthContext)
     const handleSubmit = event => {
         event.preventDefault();
@@ -16,6 +17,13 @@ const Login = () => {
         const password = form.password.value;
         form.reset()
         signIn(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            form.reset();
+            setPasswordError('')
+            navigate('/home')
+        })
         console.log(email, password)
         .catch(error => {
             setPasswordError(error.message)
@@ -64,6 +72,7 @@ const Login = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
+                <p className='text-danger'>{passwordError}</p>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <p>You don't have an account? <Link to='/register'>Please Register</Link></p>
                 </Form.Group>

@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Courses from '../Components/Courses/Courses';
 import Footer from '../Components/Footer/Footer';
 import Header from '../Components/Header/Header';
+import Sidebar from '../Components/Sidebar/Sidebar';
 import './Main.css'
 import './Main.css'
 
@@ -14,7 +15,7 @@ const Main = () => {
             <Container>
                 <Row>
                     <Col lg="3" className='sidebar'>
-                        <Courses></Courses>
+                        <Sidebar></Sidebar>
                     </Col>
                     <Col lg="9" className='outlet'>
                         <Outlet></Outlet>

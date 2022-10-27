@@ -11,6 +11,8 @@ import PrivateRoutes from './Route/PrivateRoutes';
 import NotFound from './Components/NotFound/NotFound';
 import Courses from './Components/Courses/Courses';
 import FAQ from './Components/Q-A/FAQ';
+import { Card } from 'react-bootstrap';
+import Sidebar from './Components/Sidebar/Sidebar';
 
 
 function App() {
@@ -50,6 +52,16 @@ function App() {
           path: '/faq',
           element: <FAQ></FAQ>
         },
+        {
+          path: '/card',
+          element: <PrivateRoutes><Card></Card></PrivateRoutes>
+        },
+        {
+          path:'/sidebar',
+          loader: () => fetch('https://tech-education-server.vercel.app/courses/'),
+          element: <Sidebar></Sidebar>
+        }
+        
       ]
     },
     {

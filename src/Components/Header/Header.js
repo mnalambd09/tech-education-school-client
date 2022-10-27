@@ -7,7 +7,8 @@ import { FaUserAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
 import Image  from '../Header/logo.png';
-import './Header.css'
+import './Header.css';
+
 
 
 const Header = () => {
@@ -29,7 +30,7 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto nav-link">
-                            <Link to="/home">Home</Link>
+                            <Link to="/home">Courses</Link>
                             <Link to="/blog">Blog</Link>
                             <Link to="/faq">FAQ</Link>
                             <Link to="/register">Register</Link>
