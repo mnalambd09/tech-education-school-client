@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { FaUserAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
 import Image  from '../Header/logo.png';
@@ -45,16 +46,24 @@ const Header = () => {
                             </NavDropdown> */}
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
+                            <Nav.Link className='name'>{user?.displayName}</Nav.Link>
+                            <Nav.Link>{
+                                    user?.uid ?
+                                    <img className='rounded rounded-circle profile' src={user?.photoURL} alt="" />
+                                    :
+                                    <div className='icon'><FaUserAlt/></div>
+
+                                }</Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
-                                <img className='rounded rounded-circle w-25' src={user?.photoURL} alt="" />
                                 {
                                     user?.uid ?
                                     <button onClick={handleLogOut} className='btn btn-primary m-2'>Sign Out</button>
                                     :
                                     <button className='btn btn-primary'><Link to='/login'>Log In</Link></button>
                                 }
+
                             </Nav.Link>
+                            
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
