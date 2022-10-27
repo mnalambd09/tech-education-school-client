@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
 import Image  from '../Header/logo.png';
 import './Header.css';
+import ReactTooltip from 'react-tooltip';
 
 
 
@@ -35,23 +36,17 @@ const Header = () => {
                             <Link to="/faq">FAQ</Link>
                             <Link to="/register">Register</Link>
                             <Link to="/login">Login</Link>
-                            {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">
-                                    Another action
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">
-                                    Separated link
-                                </NavDropdown.Item>
-                            </NavDropdown> */}
+                           
                         </Nav>
                         <Nav>
                             <Nav.Link className='name'>{user?.displayName}</Nav.Link>
                             <Nav.Link>{
                                     user?.uid ?
-                                    <img className='rounded rounded-circle profile' src={user?.photoURL} alt="" />
+                                    <>
+                                        <img data-tip={user?.displayName} className='rounded rounded-circle profile' src={user?.photoURL} alt="" />
+                                        <ReactTooltip />
+                                    </>
+                                    
                                     :
                                     <div className='icon'><FaUserAlt/></div>
 
